@@ -1,11 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    Bem vindo, {{ auth()->user()->name }}!
-                </div>
-            </div>
-        </div>
+    <div class="flex items-center justify-center h-[80vh]">
+        <h1 class="text-2xl font-bold">Painel em construção 🚧</h1>
     </div>
 </x-app-layout>
