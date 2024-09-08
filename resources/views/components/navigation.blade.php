@@ -14,7 +14,7 @@
         <div class="flex-none lg:hidden">
             <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                    class="inline-block w-6 h-6 stroke-white">
+                    class="inline-block w-6 h-6 stroke-base-content">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
                 </svg>
@@ -25,7 +25,7 @@
 <div class="drawer-side">
     <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
     <ul class="min-h-full bg-base-300 w-72 menu">
-        <div class="mt-2 ml-2 mb-6">
+        <div class="mt-2 ml-2">
             <x-application-logo />
         </div>
         <div class="divider"></div>
