@@ -7,6 +7,7 @@ use App\Livewire\Admin\Sales\Create;
 use App\Livewire\Admin\Sales\Index as SalesIndex;
 use App\Livewire\Admin\Stock\Index as StockIndex;
 use App\Livewire\Admin\Customers\Index as CustomersIndex;
+use App\Livewire\Admin\Purchases\Index as PurchasesIndex;
 
 Route::get('/', function () {
     return redirect()->route('admin.dashboard.index');
@@ -28,6 +29,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     });
     Route::prefix('clientes')->group(function () {
         Route::get('', CustomersIndex::class)->name('admin.customers.index');
+    });
+    Route::prefix('compras')->group(function () {
+        Route::get('', PurchasesIndex::class)->name('admin.purchases.index');
     });
 });
 
