@@ -17,7 +17,6 @@ return new class extends Migration
             $table->decimal('quantity_in_stock');
             $table->string('unit');
             $table->decimal('cost_per_unit');
-            $table->date('purchase_date');
             $table->timestamps();
         });
     }
