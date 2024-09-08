@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ingredient_id');
             $table->unsignedBigInteger('recipe_id');
+            $table->decimal('quantity_needed');
             $table->foreign('ingredient_id')->references('id')->on('ingredients')->cascadeOnDelete();
             $table->foreign('recipe_id')->references('id')->on('recipes')->cascadeOnDelete();
             $table->timestamps();
