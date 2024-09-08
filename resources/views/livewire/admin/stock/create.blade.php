@@ -1,28 +1,33 @@
 <dialog id="add_stock_modal" class="modal" wire:ignore.self>
-    <div class="h-[64vh] modal-box">
-        <form class="h-full">
+    <div class="modal-box">
+        <form class="flex flex-col h-full gap-y-4">
             <div class="form-control">
-                <label for="itemName" class="label">Nome:</label>
-                <input type="text" class="input input-bordered" id="itemName" placeholder="Manteiga" required>
+                <label for="name" class="label">Nome:</label>
+                <input wire:model="name" type="text" class="input input-bordered" id="name" placeholder="Manteiga"
+                    required>
             </div>
-            <label for="itemQuantity" class="label">Quantidade:</label>
-            <div class="join">
-                <input type="number" class="w-full input input-bordered join-item" id="itemQuantity" step="0.01"
-                    min="0" placeholder="1" required>
-                <select name="" id="" class="select select-bordered join-item" required>
-                    <option value="">g</option>
-                    <option value="">ml</option>
-                    <option value="">unidade</option>
-                    <option value="">kg</option>
-                    <option value="">l</option>
-                </select>
+            <div>
+                <label for="quantity" class="label">Quantidade:</label>
+                <div class="join">
+                    <input wire:model="quantity" type="number" class="w-full input input-bordered join-item"
+                        id="quantity" step="0.01" min="0" placeholder="1" required>
+                    <select wire:model="unit" name="unit" id="unit"
+                        class="w-1/4 select select-bordered join-item" required>
+                        <option value="g">g</option>
+                        <option value="ml">ml</option>
+                        <option value="unit">unidade</option>
+                        <option value="kg">kg</option>
+                        <option value="l">l</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-control">
-                <label for="itemName" class="label">Valor:</label>
-                <input x-mask:dynamic="$money($input, ',')" class="input input-bordered" id="itemName" required
-                    placeholder="0,00">
-            </div>
-            <div class="my-2 form-control">
+            {{-- <label for="itemName" class="label">Valor:</label>
+            <div class="join w-full">
+                <button class="btn btn-primary join-item" type="button">R$</button>
+                <input x-mask:dynamic="$money($input, ',')" class="w-full input input-bordered join-item" id="itemName"
+                    required placeholder="0,00">
+            </div> --}}
+            {{-- <div class="my-2 form-control">
                 <div class="flex items-center justify-between">
                     <label for="" class="label">Comprado hoje?</label>
                     <input type="checkbox" class="toggle toggle-info" wire:click="$toggle('boughtToday')"
@@ -35,8 +40,10 @@
                             @if ($boughtToday) required @endif>
                     @endif
                 </div>
+            </div> --}}
+            <div class="mt-4">
+                <button class="w-full btn btn-primary text-lg" type="submit">Salvar</button>
             </div>
-            <button class="w-full btn btn-primary text-lg mt-2" type="submit">Salvar</button>
         </form>
     </div>
     <form method="dialog" class="modal-backdrop">
