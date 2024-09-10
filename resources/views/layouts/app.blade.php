@@ -21,7 +21,7 @@
 </body>
 <script>
     document.addEventListener('livewire:navigated', () => {
-        const theme = localStorage.getItem('theme') || 'dark'
+        const theme = localStorage.getItem('theme')
         document.querySelector('html').setAttribute('data-theme', theme);
     })
 </script>
