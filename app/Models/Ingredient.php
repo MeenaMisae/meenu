@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Ingredient extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'quantity_in_stock', 'unit', 'cost_per_unit', 'purchase_date'];
+    protected $fillable = ['name', 'quantity_in_stock', 'unit'];
     public function recipes(): BelongsToMany
     {
         return $this->belongsToMany(Recipe::class);
