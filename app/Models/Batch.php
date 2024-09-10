@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Batch extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['recipe_id', 'quantity_produced', 'production_date'];
     public function recipe(): BelongsTo
     {
         return $this->belongsTo(Recipe::class);
