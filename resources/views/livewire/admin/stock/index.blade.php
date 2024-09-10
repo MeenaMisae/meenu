@@ -1,5 +1,5 @@
 <div>
-    <div class="px-2">
+    <div class="px-4">
         <button class="w-full btn btn-primary text-lg mt-2" @click="add_stock_modal.showModal()">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -8,9 +8,24 @@
             </svg>
             Adicionar item
         </button>
-        <div class="flex items-center justify-center h-[50vh]">
-            <h1 class="text-2xl font-bold">Estoque em construção 🚧</h1>
+        <div class="flex w-full gap-x-8 mt-4">
+            @forelse ($ingredients as $ingredient)
+                <div class="w-full h-64">
+                    <div class="h-[80%] bg-base-100 rounded-3xl flex justify-center">
+                        <span class="badge badge-primary h-8 font-semibold mt-4">{{ $ingredient->quantity_in_stock }}
+                            {{ $ingredient->unit }}</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        {{ $ingredient->name }}
+                    </div>
+                </div>
+            @empty
+                Nenhum ingrediente cadastrado.
+            @endforelse
         </div>
-        <livewire:admin.stock.create />
+        {{-- <div class="flex items-center justify-center h-[50vh]">
+            <h1 class="text-2xl font-bold">Estoque em construção 🚧</h1>
+        </div> --}}
+        <livewire:admin.stock.create @created="$refresh" />
     </div>
 </div>
