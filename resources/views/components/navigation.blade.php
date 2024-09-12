@@ -29,7 +29,7 @@
             <x-application-logo />
         </div>
         <div class="divider"></div>
-        <div class="flex justify-between">
+        <div class="flex justify-between px-3">
             <div class="flex gap-x-2 items-center">
                 <div class="avatar placeholder">
                     <div class="w-12 rounded-full text-neutral-content bg-neutral">
@@ -40,11 +40,11 @@
                     {{ auth()->user()->name }}
                 </span>
             </div>
-            <form action="{{ route('logout') }}" method="post">
+            <form action="{{ route('logout') }}" method="post" class="flex items-center">
                 @csrf
-                <button class="btn btn-square text-error" type="submit">
+                <button class="btn btn-sm btn-square text-error" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
+                        stroke="currentColor" class="size-4">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
                     </svg>
