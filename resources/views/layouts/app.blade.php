@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="" class="font-afacad">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="" class="font-poppins">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-base-100">
         <div class="drawer">
             <x-navigation />
         </div>
