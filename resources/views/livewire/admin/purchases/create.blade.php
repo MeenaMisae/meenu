@@ -1,33 +1,33 @@
 <dialog id="add_purchase_modal" class="modal" wire:ignore.self>
     <div class="modal-box">
-        <form class="flex flex-col h-full gap-y-4">
+        <form class="flex flex-col h-full">
             <div class="form-control">
-                <label for="name" class="label">Nome:</label>
-                <input wire:model="name" type="text" class="input input-bordered" id="name" placeholder="Manteiga"
-                    required>
+                <label for="item" class="label">Item:</label>
+                <select id="item" name="item" class="select select-primary"
+                    wire:change="loadUnit($event.target.value)">
+                    <option value="" selected disabled>Selecione o item</option>
+                    @foreach ($items as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div>
                 <label for="quantity" class="label">Quantidade:</label>
-                <div class="join">
+                <div class="join w-full">
                     <input wire:model="quantity" type="number" class="w-full input input-bordered join-item"
-                        id="quantity" step="0.01" min="0" placeholder="1" required>
-                    <select wire:model="unit" name="unit" id="unit"
-                        class="w-1/4 select select-bordered join-item" required>
-                        <option value="g">g</option>
-                        <option value="ml">ml</option>
-                        <option value="unit">unidade</option>
-                        <option value="kg">kg</option>
-                        <option value="l">l</option>
-                    </select>
+                        id="quantity" step="0.01" min="0" placeholder="1" required />
+                    <button class="join-item btn btn-primary" type="button">{{ $unit }}</button>
                 </div>
             </div>
-            {{-- <label for="itemName" class="label">Valor:</label>
-            <div class="join w-full">
-                <button class="btn btn-primary join-item" type="button">R$</button>
-                <input x-mask:dynamic="$money($input, ',')" class="w-full input input-bordered join-item" id="itemName"
-                    required placeholder="0,00">
-            </div> --}}
-            {{-- <div class="my-2 form-control">
+            <div class="form-control">
+                <label for="price" class="label">Valor:</label>
+                <div class="join w-full">
+                    <button class="btn btn-primary join-item" type="button">R$</button>
+                    <input x-mask:dynamic="$money($input, ',')" wire:model="price"
+                        class="w-full input input-bordered join-item" id="price" required placeholder="0,00">
+                </div>
+            </div>
+            <div class="my-2 form-control">
                 <div class="flex items-center justify-between">
                     <label for="" class="label">Comprado hoje?</label>
                     <input type="checkbox" class="toggle toggle-info" wire:click="$toggle('boughtToday')"
@@ -40,7 +40,7 @@
                             @if ($boughtToday) required @endif>
                     @endif
                 </div>
-            </div> --}}
+            </div>
             <div class="mt-4">
                 <button class="w-full btn btn-primary text-lg" type="submit">Salvar</button>
             </div>
