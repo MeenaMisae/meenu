@@ -45,7 +45,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                afacad: ['Afacad', 'sans-serif'],
+                poppins: ['Poppins', 'sans-serif'],
             },
         },
     },
