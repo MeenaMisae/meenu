@@ -8,24 +8,28 @@
             </svg>
             Adicionar item
         </button>
-        <div class="flex w-full gap-x-8 mt-4">
+        <div class="flex w-full gap-x-4 mt-4 flex-wrap">
             @forelse ($ingredients as $ingredient)
-                <div class="w-full h-64">
-                    <div class="h-[80%] bg-base-100 rounded-3xl flex justify-center">
-                        <span class="badge badge-primary h-8 font-semibold mt-4">{{ $ingredient->quantity_in_stock }}
-                            {{ $ingredient->unit }}</span>
+                <div class="w-[47%] h-64">
+                    <div class="h-[80%] bg-base-200 rounded-3xl flex justify-center flex-col items-center">
+                        <span class="badge badge-primary font-semibold">{{ $ingredient->quantity_in_stock }}
+                            {{ $ingredient->unit }}
+                        </span>
+                        <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="text-base-content">
+                            <path
+                                d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
                     </div>
-                    <div class="flex items-center justify-center">
-                        {{ $ingredient->name }}
+                    <div class="flex items-center justify-center mt-2">
+                        <span class="text-lg font-bold text-base-content">{{ $ingredient->name }}</span>
                     </div>
                 </div>
             @empty
                 Nenhum ingrediente cadastrado.
             @endforelse
         </div>
-        {{-- <div class="flex items-center justify-center h-[50vh]">
-            <h1 class="text-2xl font-bold">Estoque em construção 🚧</h1>
-        </div> --}}
         <livewire:admin.stock.create @created="$refresh" />
     </div>
 </div>
