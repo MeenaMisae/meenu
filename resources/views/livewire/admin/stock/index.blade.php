@@ -8,9 +8,9 @@
             </svg>
             Adicionar item
         </button>
-        <div class="flex w-full gap-x-4 mt-4 flex-wrap">
+        <div class="flex w-full mt-4 justify-center flex-col items-center space-y-6">
             @forelse ($ingredients as $ingredient)
-                <div class="w-[47%] h-64">
+                <div class="w-72 h-64 border-base-200 border-2 rounded-3xl">
                     <div class="h-[80%] bg-base-200 rounded-3xl flex justify-center flex-col items-center">
                         <span class="badge badge-primary font-semibold">{{ $ingredient->quantity_in_stock }}
                             {{ $ingredient->unit }}
@@ -23,7 +23,7 @@
                         </svg>
                     </div>
                     <div class="flex items-center justify-center mt-2">
-                        <span class="text-lg font-bold text-base-content">{{ $ingredient->name }}</span>
+                        <span class="font-semibold text-base-content">{{ $ingredient->name }}</span>
                     </div>
                 </div>
             @empty
