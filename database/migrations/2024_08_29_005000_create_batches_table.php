@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('recipe_id');
-            $table->integer('quantity_produced');
             $table->date('production_date');
             $table->foreign('recipe_id')->references('id')->on('recipes')->cascadeOnDelete();
             $table->timestamps();
