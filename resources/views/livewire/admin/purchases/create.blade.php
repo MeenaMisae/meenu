@@ -1,11 +1,11 @@
 <dialog id="add_purchase_modal" class="modal" wire:ignore.self>
     <div class="modal-box">
-        <form class="flex flex-col h-full">
+        <form wire:submit.prevent="save" class="flex flex-col h-full">
             <div class="form-control">
                 <label for="item" class="label">Item:</label>
                 <select id="item" name="item" class="select select-primary"
-                    wire:change="loadUnit($event.target.value)">
-                    <option value="" selected disabled>Selecione o item</option>
+                    wire:change="loadUnit($event.target.value)" wire:model="ingredientId">
+                    <option value="0" selected disabled>Selecione o item</option>
                     @foreach ($items as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
@@ -37,7 +37,7 @@
                     @if (!$boughtToday)
                         <label for="boughtDate" class="label">Data da compra:</label>
                         <input type="date" class="w-full input input-bordered" id="boughtDate"
-                            @if ($boughtToday) required @endif>
+                            wire:model="purchaseDate" @if ($boughtToday) required @endif>
                     @endif
                 </div>
             </div>
