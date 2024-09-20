@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Purchase extends Model
 {
-    protected $fillable = ['ingredient_id', 'quantity_purchased', 'price_per_unit', 'purchase_date'];
+    protected $fillable = ['ingredient_id', 'quantity_purchased', 'price_per_unit', 'purchase_date', 'price'];
     use HasFactory;
     public function ingredient(): BelongsTo
     {
