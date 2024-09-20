@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ingredient_id');
             $table->decimal('quantity_purchased');
             $table->decimal('price_per_unit');
+            $table->decimal('price');
             $table->date('purchase_date');
             $table->foreign('ingredient_id')->references('id')->on('ingredients')->cascadeOnDelete();
             $table->timestamps();
