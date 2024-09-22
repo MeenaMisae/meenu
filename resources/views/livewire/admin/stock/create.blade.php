@@ -17,7 +17,7 @@
                     <input wire:model="quantity" type="number" class="w-full input input-bordered join-item"
                         id="quantity" step="0.01" min="0" placeholder="1">
                     <select wire:model.live="unit" name="unit" id="unit"
-                        class="w-1/4 select select-bordered join-item">
+                        class="w-1/3 select select-bordered join-item">
                         <option value="" selected disabled></option>
                         <option value="g">g</option>
                         <option value="ml">ml</option>
