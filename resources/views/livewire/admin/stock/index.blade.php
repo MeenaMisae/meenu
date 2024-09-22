@@ -10,9 +10,10 @@
         </button>
         <div class="flex w-full mt-4 justify-center flex-col items-center space-y-6">
             @forelse ($ingredients as $ingredient)
-                <div class="w-72 h-64 border-base-200 border-2 rounded-3xl">
-                    <div class="h-[80%] bg-base-200 rounded-3xl flex justify-center flex-col items-center">
-                        <span class="badge badge-primary font-semibold">{{ $ingredient->quantity_in_stock }}
+                <div class="w-72 h-64 border-base-200 border-2 rounded-3xl"
+                    wire:click="showEditModal({{ $ingredient->id }})">
+                    <div class="h-[83%] bg-base-200 rounded-3xl flex justify-center flex-col items-center">
+                        <span class="badge badge-primary font-semibold mt-3">{{ $ingredient->quantity_in_stock }}
                             {{ $ingredient->unit }}
                         </span>
                         <svg data-slot="icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor"
@@ -31,5 +32,6 @@
             @endforelse
         </div>
         <livewire:admin.stock.create @created="$refresh" />
+        <livewire:admin.stock.edit @updated="$refresh" />
     </div>
 </div>
