@@ -3,8 +3,7 @@
         <form wire:submit="save" class="flex flex-col h-full gap-y-4">
             <div class="form-control">
                 <label for="name" class="label">Nome:</label>
-                <input wire:model="name" type="text" class="input input-bordered" id="name"
-                    placeholder="Manteiga">
+                <input wire:model="name" type="text" class="input input-primary" id="name" placeholder="Manteiga">
                 <div class="h-2">
                     @error('name')
                         <span class="text-error font-semibold text-lg">{{ $message }}</span>
@@ -14,10 +13,10 @@
             <div>
                 <label for="quantity" class="label">Quantidade:</label>
                 <div class="join">
-                    <input wire:model="quantity" type="number" class="w-full input input-bordered join-item"
+                    <input wire:model="quantity" type="number" class="w-full input input-primary join-item"
                         id="quantity" step="0.01" min="0" placeholder="1">
                     <select wire:model.live="unit" name="unit" id="unit"
-                        class="w-1/3 select select-bordered join-item">
+                        class="w-1/3 select select-primary join-item">
                         <option value="" selected disabled></option>
                         <option value="g">g</option>
                         <option value="ml">ml</option>
