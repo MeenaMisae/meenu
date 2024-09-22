@@ -30,6 +30,6 @@ class Create extends Component
             'unit' => $this->unit
         ]);
         $this->js('add_stock_modal.close()');
-        $this->dispatch('created');
+        $this->dispatch('created')->self();
     }
 }
