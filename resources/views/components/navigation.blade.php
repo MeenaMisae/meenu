@@ -25,32 +25,10 @@
 <div class="drawer-side">
     <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
     <ul class="min-h-full bg-base-100 w-72 menu gap-y-12 px-3">
-        <div class="space-y-9 mt-3">
+        <div class="space-y-9 mt-3 h-[40rem]">
             <div class="ml-3">
                 <x-application-logo />
             </div>
-            {{-- <div class="flex justify-between px-3">
-            <div class="flex gap-x-2 items-center">
-                <div class="avatar placeholder">
-                    <div class="w-12 rounded-full text-neutral-content bg-neutral">
-                        <span class="text-lg">{{ auth()->user()->name[0] }}</span>
-                    </div>
-                </div>
-                <span class="text-lg">
-                    {{ auth()->user()->name }}
-                </span>
-            </div>
-            <form action="{{ route('logout') }}" method="post" class="flex items-center">
-                @csrf
-                <button class="btn btn-sm btn-square text-error" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
-                    </svg>
-                </button>
-            </form>
-        </div> --}}
             <li class="flex space-y-4">
                 <a href="{{ route('admin.dashboard.index') }}" wire:navigate
                     class="@if (request()->routeIs('admin.dashboard.index')) text-secondary @endif flex gap-x-4">
@@ -110,5 +88,16 @@
                 </a> --}}
             </li>
         </div>
+        <form action="{{ route('logout') }}" method="post" class="w-full">
+            @csrf
+            <button class="flex gap-2 font-semibold items-center text-secondary text-lg btn btn-outline w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                </svg>
+                Sair
+            </button>
+        </form>
     </ul>
 </div>
