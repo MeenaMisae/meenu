@@ -14,7 +14,7 @@
             <div>
                 <label for="quantity" class="label">Quantidade:</label>
                 <div class="join w-full">
-                    <input wire:model="quantity" type="number" class="w-full input input-bordered join-item"
+                    <input wire:model="quantity" type="number" class="w-full input input-primary join-item"
                         id="quantity" step="0.01" min="0" placeholder="1" required />
                     <button class="join-item btn btn-primary" type="button">{{ $unit }}</button>
                 </div>
@@ -24,7 +24,7 @@
                 <div class="join w-full">
                     <button class="btn btn-primary join-item" type="button">R$</button>
                     <input x-mask:dynamic="$money($input, ',')" wire:model="price"
-                        class="w-full input input-bordered join-item" id="price" required placeholder="0,00">
+                        class="w-full input input-primary join-item" id="price" required placeholder="0,00">
                 </div>
             </div>
             <div class="my-2 form-control">
